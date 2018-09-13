@@ -12,7 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class InterceptorController {
 
     @RequestMapping("/test1")
-    public ModelAndView interceptor(){
+    public ModelAndView interceptor1(){
+        System.out.println(this.getClass().getSimpleName() + " " + new Exception().getStackTrace()[0].getMethodName() + " enter");
+        return new ModelAndView("interceptor");
+    }
+
+    @RequestMapping("/test2")
+    public ModelAndView interceptor2(){
         System.out.println(this.getClass().getSimpleName() + " " + new Exception().getStackTrace()[0].getMethodName() + " enter");
         return new ModelAndView("interceptor");
     }

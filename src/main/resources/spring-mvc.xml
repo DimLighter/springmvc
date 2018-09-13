@@ -18,6 +18,15 @@
     <!-- if you use annotation you must configure following setting -->
     <mvc:annotation-driven />
 
+    <mvc:interceptors>
+        <bean class="com.hhg.jerry.interceptor.MyInterceptor1"/>
+        <bean class="com.hhg.jerry.interceptor.MyInterceptor2"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/interceptor/test2"/>
+            <bean class="com.hhg.jerry.interceptor.MyInterceptor3"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- configure the InternalResourceViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           id="internalResourceViewResolver">
